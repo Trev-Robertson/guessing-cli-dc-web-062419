@@ -34,16 +34,22 @@ end
 
 
 def run_guessing_game
-your_guess = ""
-computer_guess = ""
-random_number_generator
-welcome
+computer_guess = rand(1..6)
+    your_guess = ""
+  while (1..6).include?(your_guess) == false
+  puts "PLease enter a number between 1 - 6, or 'exit' to exit"
+  your_guess = gets.downcase.strip
+  break if your_guess == "exit"
+  your_guess = your_guess.to_i
+end
 if your_guess == "exit"
   puts "Goodbye"
-else
-compare_numbers
-  
+elsif your_guess == computer_guess
+    "You guessed the correct number!"
+  else
+     puts "The computer guessed #{computer_guess}"
 end
+
 end
 
 
